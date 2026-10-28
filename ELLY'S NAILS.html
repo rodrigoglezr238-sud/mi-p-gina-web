@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ELLY'S NAILS | Estudio de uñas postizas</title>
+<meta name="description" content="ELLY'S NAILS: uñas postizas en acrílico, soft gel y diseños a mano alzada. Agenda tu cita por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ========== 1. VARIABLES (paleta monocromática rosa) ========== */
+  :root {
+    --blush: #fff0f7;        /* fondo principal */
+    --pink-100: #ffe0ef;     /* fondos de tarjetas / secciones alternas */
+    --pink-200: #ffc2de;     /* detalles suaves */
+    --pink-300: #ff8fc4;     /* detalles medios */
+    --magenta: #e0218a;      /* acento principal / CTA */
+    --magenta-dark: #b5126d; /* hover y texto sobre rosa */
+    --ink: #4a0f2f;          /* texto (vino oscuro, mantiene la gama) */
+    --wa: #25d366;           /* verde oficial de WhatsApp */
+    --radius: 28px;
+    --shadow: 0 12px 30px rgba(224, 33, 138, .16);
+    --font-display: "Bagel Fat One", "Trebuchet MS", cursive, sans-serif;
+    --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  /* ========== 2. BASE ========== */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { margin: 0; font-family: var(--font-body); color: var(--ink); background: var(--blush); line-height: 1.6; }
+  img, iframe { max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; margin: 0; }
+  h2 { font-size: clamp(2rem, 5vw, 3rem); color: var(--magenta); }
+  :focus-visible { outline: 3px solid var(--magenta); outline-offset: 3px; }
+  .container { width: min(1120px, 92%); margin-inline: auto; }
+  section { padding: 84px 0; }
+  .section-head { text-align: center; max-width: 560px; margin: 0 auto 44px; }
+  .section-head p { margin: 10px 0 0; }
+
+  /* ========== 3. BOTONES ========== */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 28px; border-radius: 999px; border: 0; cursor: pointer;
+    font: 700 1rem var(--font-body); text-decoration: none;
+    transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--magenta); color: #fff; box-shadow: 0 10px 24px rgba(224, 33, 138, .38); }
+  .btn-primary:hover { background: var(--magenta-dark); }
+  .btn-ghost { background: #fff; color: var(--magenta); border: 2px solid var(--pink-200); }
+  .btn-ghost:hover { border-color: var(--magenta); }
+  .btn-wa { background: var(--wa); color: #fff; box-shadow: 0 10px 24px rgba(37, 211, 102, .35); }
+
+  /* ========== 4. HEADER ========== */
+  header { position: sticky; top: 0; z-index: 50; background: rgba(255, 240, 247, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--pink-200); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-family: var(--font-display); font-size: 1.6rem; color: var(--magenta); text-decoration: none; }
+  .nav-links { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { text-decoration: none; font-weight: 500; }
+  .nav-links a:not(.btn):hover { color: var(--magenta); }
+  .nav-links .btn { padding: 10px 20px; color: #fff; }
+  .menu-toggle { display: none; background: var(--pink-100); border: 0; border-radius: 14px; width: 44px; height: 44px; font-size: 1.4rem; color: var(--magenta); cursor: pointer; }
+
+  /* ========== 5. HERO ========== */
+  .hero { padding: 72px 0 96px; background: radial-gradient(circle at 85% 10%, var(--pink-200), transparent 45%), var(--blush); overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); color: var(--magenta); }
+  .hero p { font-size: 1.15rem; max-width: 460px; margin: 18px 0 30px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-art { position: relative; aspect-ratio: 1; max-width: 420px; margin-inline: auto; width: 100%; }
+  .hero-art .blob { position: absolute; inset: 6%; background: linear-gradient(145deg, var(--pink-300), var(--magenta)); border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%; box-shadow: var(--shadow); }
+  .hero-art .hand { position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(7rem, 22vw, 11rem); animation: float 4s ease-in-out infinite; filter: drop-shadow(0 14px 18px rgba(74, 15, 47, .25)); }
+  .spark { position: absolute; color: #fff; font-size: 1.8rem; animation: twinkle 2.4s ease-in-out infinite; }
+  .spark:nth-child(3) { top: 8%; left: 12%; }
+  .spark:nth-child(4) { bottom: 14%; right: 6%; animation-delay: .8s; }
+  .spark:nth-child(5) { top: 40%; right: 0; animation-delay: 1.5s; font-size: 1.2rem; }
+  @keyframes float { 50% { transform: translateY(-14px) rotate(3deg); } }
+  @keyframes twinkle { 50% { opacity: .3; transform: scale(.7); } }
+
+  /* ========== 6. SERVICIOS ========== */
+  #servicios { background: var(--pink-100); }
+  .grid { display: grid; gap: 24px; }
+  .services-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { background: #fff; border-radius: var(--radius); padding: 30px 26px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .card .icon { width: 56px; height: 56px; border-radius: 18px; background: var(--pink-100); display: grid; place-items: center; font-size: 1.7rem; margin-bottom: 16px; }
+  .card h3 { font-size: 1.4rem; color: var(--magenta-dark); }
+  .card ul { padding-left: 18px; margin: 12px 0 18px; flex: 1; }
+  .card li::marker { color: var(--magenta); }
+  .price { font-weight: 700; font-size: 1.15rem; color: var(--magenta); }
+  .note { text-align: center; margin-top: 28px; font-size: .95rem; }
+
+  /* ========== 7. GALERÍA ========== */
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .tile { aspect-ratio: 1; border-radius: var(--radius); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #fff; font-weight: 700; text-align: center; box-shadow: var(--shadow); transition: transform .25s; cursor: default; }
+  .tile:hover { transform: scale(1.04) rotate(-1deg); }
+  .tile span { font-size: 3rem; }
+  .t1 { background: linear-gradient(135deg, #ff8fc4, #e0218a); }
+  .t2 { background: linear-gradient(135deg, #ffc2de, #ff8fc4); color: var(--ink); }
+  .t3 { background: linear-gradient(135deg, #e0218a, #b5126d); }
+  .t4 { background: linear-gradient(135deg, #ffe0ef, #ffc2de); color: var(--ink); }
+  .t5 { background: linear-gradient(135deg, #ff6fb5, #ff8fc4); }
+  .t6 { background: linear-gradient(135deg, #b5126d, #e0218a); }
+  .gallery-cta { text-align: center; margin-top: 32px; }
+
+  /* ========== 8. ACERCA DEL ESTUDIO ========== */
+  #nosotras { background: var(--pink-100); }
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+  .about p { margin: 16px 0 0; }
+  .values { display: grid; gap: 16px; }
+  .value { background: #fff; border-radius: var(--radius); padding: 20px 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start; }
+  .value .icon { font-size: 1.8rem; }
+  .value h3 { font-size: 1.15rem; color: var(--magenta-dark); }
+  .value p { margin: 4px 0 0; font-size: .95rem; }
+
+  /* ========== 9. CONTACTO ========== */
+  .contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; }
+  .contact-info { background: #fff; border-radius: var(--radius); padding: 34px 30px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 18px; }
+  .contact-info h3 { color: var(--magenta); font-size: 1.5rem; }
+  .contact-info p { margin: 0; }
+  .contact-info .btn { width: 100%; }
+  .map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 340px; background: var(--pink-200); }
+  .map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; }
+
+  /* ========== 10. FOOTER ========== */
+  footer { background: var(--magenta-dark); color: #fff; padding: 52px 0 28px; }
+  .foot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+  footer h3 { font-size: 1.25rem; margin-bottom: 10px; }
+  footer p, footer li { margin: 0 0 4px; opacity: .92; }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer a { text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .copy { border-top: 1px solid rgba(255, 255, 255, .25); margin-top: 32px; padding-top: 20px; text-align: center; font-size: .9rem; opacity: .85; }
+
+  /* ========== 11. BOTÓN FLOTANTE DE WHATSAPP ========== */
+  .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 60; display: flex; align-items: center; gap: 10px; background: var(--wa); color: #fff; text-decoration: none; font-weight: 700; padding: 14px 20px; border-radius: 999px; box-shadow: 0 10px 28px rgba(37, 211, 102, .5); animation: pulse 2.4s infinite; }
+  .wa-float svg { width: 26px; height: 26px; fill: #fff; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 10px 28px rgba(37, 211, 102, .5), 0 0 0 0 rgba(37, 211, 102, .5); } 60% { box-shadow: 0 10px 28px rgba(37, 211, 102, .5), 0 0 0 16px rgba(37, 211, 102, 0); } }
+
+  /* ========== 12. RESPONSIVE ========== */
+  @media (max-width: 860px) {
+    section { padding: 64px 0; }
+    .hero-grid, .about, .contact { grid-template-columns: 1fr; }
+    .hero-art { max-width: 300px; order: -1; }
+    .menu-toggle { display: block; }
+    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 4%; background: var(--blush); border-bottom: 1px solid var(--pink-200); }
+    .nav-links.open { display: flex; }
+    .nav-links li { padding: 10px 0; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .wa-float span { display: none; } /* en móviles pequeños queda solo el ícono */
+    .wa-float { padding: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER / NAVEGACIÓN ===== -->
+<header>
+  <nav class="container nav" aria-label="Principal">
+    <a href="#inicio" class="logo">ELLY'S NAILS</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#nosotras">Nosotras</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#" class="btn btn-primary" data-wa target="_blank" rel="noopener">Agendar por WhatsApp</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <h1>Uñas que se roban todas las miradas</h1>
+        <p>Arte en tus manos: acrílico, soft gel y diseños hechos a mano, con un acabado impecable y mucho brillo.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary" data-wa target="_blank" rel="noopener">Agendar mi cita</a>
+          <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="blob"></div>
+        <div class="hand">💅</div>
+        <span class="spark">✦</span><span class="spark">✦</span><span class="spark">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS Y PRECIOS ===== -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <h2>Servicios y precios</h2>
+        <p>Elige tu servicio y cuéntanos tu idea. Los precios son de referencia.</p>
+      </div>
+      <div class="grid services-grid">
+        <article class="card">
+          <div class="icon">💎</div>
+          <h3>Aplicación de acrílico</h3>
+          <ul><li>Preparación de la uña natural</li><li>Esculpido en la forma que elijas</li><li>Color liso o francés</li></ul>
+          <span class="price">Desde $450 MXN</span>
+        </article>
+        <article class="card">
+          <div class="icon">✨</div>
+          <h3>Gelish / Soft Gel</h3>
+          <ul><li>Extensión ligera y flexible</li><li>Color gel de larga duración</li><li>Brillo de espejo</li></ul>
+          <span class="price">Desde $500 MXN</span>
+        </article>
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>Mano alzada y diseños</h3>
+          <ul><li>Diseños personalizados a mano</li><li>Efectos, chrome y glitter</li><li>Pedrería y charms</li></ul>
+          <span class="price">Desde $80 MXN por uña</span>
+        </article>
+        <article class="card">
+          <div class="icon">🌸</div>
+          <h3>Retiro y mantenimiento</h3>
+          <ul><li>Retiro seguro sin dañar la uña</li><li>Relleno y reparación de uñas</li><li>Hidratación de cutícula</li></ul>
+          <span class="price">Desde $200 MXN</span>
+        </article>
+      </div>
+      <p class="note">El precio final depende del largo, la forma y el diseño. Te damos tu cotización al agendar.</p>
+    </div>
+  </section>
+
+  <!-- ===== GALERÍA (placeholders: reemplaza cada .tile por <img src="tu-foto.jpg" alt="..."> ) ===== -->
+  <section id="galeria">
+    <div class="container">
+      <div class="section-head">
+        <h2>Nuestros trabajos</h2>
+        <p>Un vistazo a los estilos que más nos piden.</p>
+      </div>
+      <div class="grid gallery">
+        <div class="tile t1"><span>💖</span>Rosa chicle</div>
+        <div class="tile t2"><span>🎀</span>Moños y glitter</div>
+        <div class="tile t3"><span>💎</span>Chrome magenta</div>
+        <div class="tile t4"><span>🤍</span>Francés rosa</div>
+        <div class="tile t5"><span>🦋</span>Mano alzada</div>
+        <div class="tile t6"><span>✨</span>Glam con cristales</div>
+      </div>
+      <div class="gallery-cta">
+        <a href="#" class="btn btn-ghost" data-ig target="_blank" rel="noopener">Ver más en Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACERCA DEL ESTUDIO ===== -->
+  <section id="nosotras">
+    <div class="container about">
+      <div>
+        <h2>Tu estudio de uñas favorito</h2>
+        <p>En ELLY'S NAILS creemos que unas uñas bonitas empiezan por unas uñas sanas. Cada set se diseña contigo, con materiales de calidad y técnicas que cuidan tu uña natural.</p>
+        <p>Aquí no hay prisas: te escuchamos, te proponemos ideas y salimos juntas de la cita con el resultado que imaginabas.</p>
+      </div>
+      <div class="values">
+        <div class="value"><span class="icon">🌷</span><div><h3>Uñas sanas primero</h3><p>Preparación suave, productos de calidad y retiro seguro.</p></div></div>
+        <div class="value"><span class="icon">💬</span><div><h3>Atención personalizada</h3><p>Una clienta a la vez, con el tiempo que tu diseño necesita.</p></div></div>
+        <div class="value"><span class="icon">🧼</span><div><h3>Higiene y cuidado</h3><p>Herramientas desinfectadas y espacio limpio en cada cita.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UBICACIÓN Y CONTACTO ===== -->
+  <section id="contacto">
+    <div class="container">
+      <div class="section-head">
+        <h2>Agenda tu cita</h2>
+        <p>Escríbenos y reserva tu lugar. ¡Te esperamos!</p>
+      </div>
+      <div class="contact">
+        <div class="contact-info">
+          <h3>Ubicación</h3>
+          <p id="addressText"></p>
+          <a href="#" class="btn btn-wa" data-wa target="_blank" rel="noopener">Agendar por WhatsApp</a>
+          <a href="#" class="btn btn-ghost" data-ig target="_blank" rel="noopener">Síguenos en Instagram</a>
+        </div>
+        <div class="map">
+          <iframe id="mapFrame" title="Mapa de ubicación de ELLY'S NAILS" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div><h3>ELLY'S NAILS</h3><p>Estudio de uñas postizas y diseños a mano.</p></div>
+      <div>
+        <h3>Horario de atención</h3>
+        <ul><li>Lunes a viernes: 10:00 a 19:00</li><li>Sábado: 10:00 a 17:00</li><li>Domingo: cerrado</li></ul>
+      </div>
+      <div>
+        <h3>Redes</h3>
+        <ul>
+          <li><a href="#" data-ig target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" data-wa target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© <span id="year"></span> ELLY'S NAILS. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ===== BOTÓN FLOTANTE DE WHATSAPP ===== -->
+<a href="#" class="wa-float" data-wa target="_blank" rel="noopener" aria-label="Agendar por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.700 8.700 0 0 1-4.300-3.800c-.3-.6.3-.5.9-1.700.1-.2 0-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6a1.200 1.200 0 0 0-.9.4 3.700 3.700 0 0 0-1.100 2.700 6.400 6.400 0 0 0 1.300 3.400 14.600 14.600 0 0 0 5.600 5c2.100.9 2.900 1 3.900.8a3.300 3.300 0 0 0 2.200-1.600 2.700 2.700 0 0 0 .2-1.600c-.1-.1-.3-.2-.6-.4z"/></svg>
+  <span>Agendar cita</span>
+</a>
+
+<script>
+  /* ===== CONFIGURACIÓN: edita estos datos con la información real del estudio ===== */
+  const CONFIG = {
+    whatsapp: "5215500000000",                       // Número con código de país, sin + ni espacios
+    mensaje: "Hola ELLY'S NAILS, quiero pedir informes para agendar una cita",
+    instagram: "https://www.instagram.com/ellysnails",
+    direccion: "Calle Ejemplo 123, Col. Centro, Ciudad de México"
+  };
+
+  /* Enlaces de WhatsApp (api.whatsapp.com) con mensaje prediseñado */
+  const waUrl = "https://api.whatsapp.com/send?phone=" + CONFIG.whatsapp + "&text=" + encodeURIComponent(CONFIG.mensaje);
+  document.querySelectorAll("[data-wa]").forEach(a => a.href = waUrl);
+
+  /* Enlaces de Instagram */
+  document.querySelectorAll("[data-ig]").forEach(a => a.href = CONFIG.instagram);
+
+  /* Dirección y mapa de Google Maps (embed sin API key) */
+  document.getElementById("addressText").textContent = CONFIG.direccion;
+  document.getElementById("mapFrame").src = "https://www.google.com/maps?q=" + encodeURIComponent(CONFIG.direccion) + "&output=embed";
+
+  /* Menú móvil */
+  const toggle = document.getElementById("menuToggle");
+  const links = document.getElementById("navLinks");
+  toggle.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+    toggle.textContent = open ? "✕" : "☰";
+  });
+  links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    links.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "☰";
+  }));
+
+  /* Año del copyright */
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
